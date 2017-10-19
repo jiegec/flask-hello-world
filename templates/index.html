@@ -2,11 +2,13 @@
     <head>
         <script>
          function onSubmit() {
-             var form=new FormData()
-             form.append('name',document.getElementById('name').value)
              fetch('/echo', {
-                     method: 'POST',
-                     body: form
+                 method: 'POST',
+                 headers: {
+                     'Content-Type': 'application/json'
+                 },
+                 body: JSON.stringify({
+                     'name': document.getElementById('name').value})
              }).then(function (response) {
                  if(response.status == 200)
                      response.text().then(function (text) {

@@ -11,7 +11,7 @@ def hello_world():
 
 @app.route('/echo', methods=['POST'])
 def echo():
-    return 'Hello World and hello %s' % request.form['name']
+    return 'Hello World and hello %s' % request.json['name']
 
 
 if __name__ == '__main__':
